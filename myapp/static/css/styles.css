@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-item {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    height: 150px; /* Adjust based on your content */
+    margin-top: 20px;
+    text-align: center; /* Center content */
+}
+
+/* Additional Styling for Dashboard */
+.dashboard-item h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Navbar Customization */
+.navbar-brand {
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.dashboard-item {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    height: 150px; /* Adjust based on your content */
+    margin-top: 20px;
+    text-align: center; /* Center content */
+}
+
+/* Additional Styling for Dashboard */
+.dashboard-item h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Navbar Customization */
+.navbar-brand {
+    font-size: 1.5em;
+    color: #fff;
+}

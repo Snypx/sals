@@ -1,0 +1,58 @@
+<!-- myapp/templates/myapp/product_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Product Details</h2>
+
+    <!-- Create a canvas element for the line chart -->
+    <canvas id="productChart" width="200" height="125"></canvas>
+
+    <script>
+        // JavaScript code to generate the line chart for the selected product
+        var ctx = document.getElementById('productChart').getContext('2d');
+
+        var productData = {
+            labels: [{% for data in product_data %}"{{ data.date }}",{% endfor %}],
+            datasets: [{
+                label: '{{ product_data.0.product_name }} Sales',
+                data: [{% for data in product_data %}{{ data.sales }},{% endfor %}],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        };
+
+        var productChart = new Chart(ctx, {
+            type: 'line',
+            data: productData,
+        });
+
+        var ctx = document.getElementById('productChart2').getContext('2d');
+
+        var productData = {
+            labels: [{% for data in product_data %}"{{ data.date }}",{% endfor %}],
+            datasets: [{
+                label: '{{ product_data.0.product_name }} Sales',
+                data: [{% for data in product_data %}{{ data.sales }},{% endfor %}],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        };
+
+        var productChart2 = new Chart(ctx, {
+            type: 'pie',
+            data: productData,
+        });
+    </script>
+</body>
+</html>
