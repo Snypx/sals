@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 # Routes to search the static files in the root directory
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "myapp/static",
 ]
 
 # Default primary key field type

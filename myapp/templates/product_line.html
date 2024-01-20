@@ -1,4 +1,3 @@
-<!-- myapp/templates/myapp/product_list.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +11,17 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
         }
 
         .container {
             max-width: 800px;
             margin: auto;
+            background-color: #fff; /* White container background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            padding: 20px;
+            margin-top: 40px;
         }
 
         table {
@@ -48,6 +53,24 @@
         a:hover {
             text-decoration: underline;
         }
+
+        h2 {
+            color: #007bff; /* Matching blue color for h2 */
+            font-size: 28px; /* Increased font size */
+            font-weight: bold; /* Bold text */
+            text-align: center;
+            margin-bottom: 30px; /* Increased margin bottom for spacing */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Matching blue button color */
+            border-color: #007bff; /* Matching blue button border color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3; /* Darker blue on hover */
+        }
     </style>
 </head>
 <body>
@@ -73,30 +96,32 @@
             </ul>
         </div>
     </nav>
-    <h2 style="text-align: center;">Product List</h2>
+    <div class="container">
+        <h2>Product List</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in unique_products %}
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ product.product_id }}</td>
-                    <td>{{ product.product_name }}</td>
-                    <td>
-                        <a href="{% url 'product_detail' product.product_id %}">
-                            More Details
-                        </a>
-                    </td>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Action</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for product in unique_products %}
+                    <tr>
+                        <td>{{ product.product_id }}</td>
+                        <td>{{ product.product_name }}</td>
+                        <td>
+                            <button class="btn btn-primary" onclick="window.location.href='{% url 'product_detail' product.product_id %}'">
+                                More Details
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
